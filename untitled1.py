@@ -1,39 +1,19 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 22 22:39:05 2019
+n = 17
+x = len(bin(n)[2:])
+for i in range(1,n+1):
+    print(str(i).rjust(x)+oct(i)[2:].rjust(x)+hex(i)[2:].upper().rjust(x)+bin(i)[2:].rjust(x))
+    
+n = int(input())
+student_marks = {}
+for line in range(n):
+    name, *line = input().split()
+    scores = list(map(float, line))
+    student_marks[name] = scores
+query_name = input()
 
-@author: v-jaimo
-"""
+print("{0:.1f}".format(sum(student_marks[query_name])/n))
 
-''' LCM/GCD of two number A and B 
-Logic: A*B = GCD(A,B) * LCM (A,B)
-Eg:
-    10*5 = GCD(10,5) * LCM(10,5)
-        = 5 * 10 = 50
-
-'''
-
-def gcd(a,b):
-    if(a==b):
-        return a
-    if(a>b):
-        return gcd(a-b,b)
-    if(a<b):
-        return gcd(a,b-a)
-
-def lcm(a,b):
-    return int((a*b)/gcd(a,b))
-
-output_gcd = []
-output_lcm = []
-
-T = int(input())
-
-if((T >= 1) & (T <= 30)):
-    for i in range(T):
-        A, B = input().split()
-        A = int(A)
-        B = int(B)
-        _gcd = gcd(A,B)
-        output_gcd.append(_gcd)
-        output_lcm.append(int((A*B)/_gcd))
+li = []
+li.insert(0,5)
+li.insert(1,10)
+li.insert(0,6)
